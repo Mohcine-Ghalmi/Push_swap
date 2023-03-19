@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/07 14:50:31 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/03/19 17:44:32 by mghalmi          ###   ########.fr       */
+/*   Created: 2022/10/16 11:58:16 by mghalmi           #+#    #+#             */
+/*   Updated: 2022/10/19 15:16:30 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include <stdio.h>
-# include <stdlib.h>
-# include <string.h>
-# include <ctype.h>
-# include <fcntl.h>
-# include <math.h>
-# include "libft/libft.h"
-
-typedef struct stack
+void	ft_putnbr_fd(int nb, int fd)
 {
-	long	nbr;
-	struct	t_stack	*after;
-	struct	t_stack	*before;
-}   t_stack;
+	unsigned int	nbr;
 
-#endif
+	if (nb < 0)
+	{
+		ft_putchar_fd('-', fd);
+		nbr = (unsigned int)(nb * -1);
+	}
+	else
+		nbr = (unsigned int)nb;
+	if (nbr >= 10)
+		ft_putnbr_fd(nbr / 10, fd);
+	ft_putchar_fd((char)(nbr % 10 + 48), fd);
+}

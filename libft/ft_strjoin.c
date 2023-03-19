@@ -1,31 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/07 14:50:31 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/03/19 17:44:32 by mghalmi          ###   ########.fr       */
+/*   Created: 2022/10/10 15:29:08 by mghalmi           #+#    #+#             */
+/*   Updated: 2022/10/18 17:15:30 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include <stdio.h>
-# include <stdlib.h>
-# include <string.h>
-# include <ctype.h>
-# include <fcntl.h>
-# include <math.h>
-# include "libft/libft.h"
-
-typedef struct stack
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	long	nbr;
-	struct	t_stack	*after;
-	struct	t_stack	*before;
-}   t_stack;
+	char	*res;
+	int		i;
+	int		j;
 
-#endif
+	i = 0;
+	if (!s1 || !s2)
+		return (NULL);
+	res = (char *)malloc((sizeof(char) * (ft_strlen(s1) + ft_strlen(s2)) + 1));
+	if (!res)
+		return (NULL);
+	while (s1[i])
+	{
+		res[i] = s1[i];
+		i++;
+	}
+	j = 0;
+	while (s2[j])
+		res[i++] = s2[j++];
+	res[i] = '\0';
+	return (res);
+}

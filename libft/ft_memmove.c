@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/07 14:50:31 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/03/19 17:44:32 by mghalmi          ###   ########.fr       */
+/*   Created: 2022/10/08 13:56:29 by mghalmi           #+#    #+#             */
+/*   Updated: 2022/10/27 04:32:15 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include <stdio.h>
-# include <stdlib.h>
-# include <string.h>
-# include <ctype.h>
-# include <fcntl.h>
-# include <math.h>
-# include "libft/libft.h"
-
-typedef struct stack
+void	*ft_memmove(void *dest, const void *src, size_t len)
 {
-	long	nbr;
-	struct	t_stack	*after;
-	struct	t_stack	*before;
-}   t_stack;
+	char	*dt;
+	char	*sr;
 
-#endif
+	dt = (char *)dest;
+	sr = (char *)src;
+	if (!src && !dest)
+		return (NULL);
+	if (dt >= sr)
+		while (len-- > 0)
+			dt[len] = sr[len];
+	else
+		ft_memcpy(dt, sr, len);
+	return ((void *)dt);
+}
