@@ -1,12 +1,16 @@
 #include "push_swap.h"
 
-int main(void)
+int main(int argc, char **argv)
 {
-	printf("Hello World");
-	return (0);
-}
+	int i;
 
-void	A_is_sorted();
-void	sort_small_stack();
-void	sort_big_stack();
-void	B_empty();
+	i = 1;
+	if (argc > 1)
+	{
+		while (argv[i])
+			ft_atoi(argv[i++]);
+		i = 1;
+		while (argv[i])
+			ft_printf("%d\n", ft_atoi(argv[i++]));
+	}
+}

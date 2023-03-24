@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/07 14:50:31 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/03/20 18:05:06 by mghalmi          ###   ########.fr       */
+/*   Created: 2022/11/13 10:18:17 by mghalmi           #+#    #+#             */
+/*   Updated: 2022/11/15 15:34:20 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-# include <stdio.h>
 # include <stdlib.h>
+# include <unistd.h>
 # include <string.h>
-# include <ctype.h>
-# include <fcntl.h>
-# include <math.h>
-# include "libft/libft.h"
+# include <stdarg.h>
+# include <stdio.h>
 
-typedef struct stack
-{
-	long	nbr;
-	struct	t_stack	*after;
-	struct	t_stack	*before;
-}   t_stack;
+int		ft_putchar(int c);
+int		ft_putstr(const char *str);
+int		ft_putint(int nbr);
+int		ft_puthex(unsigned long long n);
+int		ft_putuint(size_t nbr);
+int		ft_putptr(void *nbr);
+int		ft_putuphex(unsigned int n);
+int		ft_printf(const char *input, ...);
+int		ft_output(va_list arg, const char *input, int i);
 
 #endif

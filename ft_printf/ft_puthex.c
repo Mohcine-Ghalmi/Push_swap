@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_puthex.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/07 14:50:31 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/03/20 18:05:06 by mghalmi          ###   ########.fr       */
+/*   Created: 2022/11/13 10:36:54 by mghalmi           #+#    #+#             */
+/*   Updated: 2022/11/15 15:37:22 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "ft_printf.h"
 
-# include <stdio.h>
-# include <stdlib.h>
-# include <string.h>
-# include <ctype.h>
-# include <fcntl.h>
-# include <math.h>
-# include "libft/libft.h"
-
-typedef struct stack
+int	ft_puthex(unsigned long long n)
 {
-	long	nbr;
-	struct	t_stack	*after;
-	struct	t_stack	*before;
-}   t_stack;
+	int		count;
+	char	*hex;
 
-#endif
+	count = 0;
+	hex = "0123456789abcdef";
+	if (n >= 16)
+	{
+		count += ft_puthex(n / 16);
+		count += ft_puthex(n % 16);
+	}
+	else if (n < 16)
+		count += ft_putchar(hex[n]);
+	return (count);
+}

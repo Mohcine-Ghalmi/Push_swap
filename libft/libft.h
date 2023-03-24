@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 11:41:18 by mghalmi           #+#    #+#             */
-/*   Updated: 2022/10/29 01:39:08 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/03/24 16:14:01 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
+# include "../ft_printf/ft_printf.h"
 
 int		ft_atoi(const char *str);
 void	ft_bzero(void *s, size_t n);

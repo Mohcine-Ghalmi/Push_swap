@@ -5,31 +5,31 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/03/07 14:50:27 by mghalmi           #+#    #+#              #
-#    Updated: 2023/03/24 17:18:56 by mghalmi          ###   ########.fr        #
+#    Created: 2022/11/14 17:57:44 by mghalmi           #+#    #+#              #
+#    Updated: 2022/11/15 15:45:57 by mghalmi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Push_swap
+NAME = libftprintf.a
 
-SRC = test.c
+SCRS =  ft_puthex.c   ft_putptr.c   ft_putuint.c   \
+		ft_printf.c   ft_putchar.c  ft_putint.c   ft_putstr.c   ft_putuphex.c
 
-HEADER = push_swap.h
+INLUDE = ft_printf.h
 
-LIBFTDIR = libft/
+OBJ = $(SCRS:.c=.o)
 
-PRINTFDIR = ft_printf/
+CFLAGS = -Werror -Wall -Wextra
 
 all : $(NAME)
 
-$(NAME) : $(HEADER)
-	make re -C $(LIBFTDIR)
-	make re -C $(PRINTFDIR)
-	cc -Wall -Wextra -Werror $(SRC) libft/libft.a ft_printf/libftprintf.a -o $(NAME)
+$(NAME) : $(OBJ) $(INLUDE)
+	ar rc $(NAME) $(OBJ)
+	
+clean :
+	rm -rf $(OBJ)
 
-fclean : 
-	make fclean -C $(LIBFTDIR)
-	make fclean -C $(PRINTFDIR)
+fclean : clean
 	rm -rf $(NAME)
 
-re : fclean all
+re: fclean all
