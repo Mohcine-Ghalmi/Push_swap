@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mohcine <mohcine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 11:09:05 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/03/24 16:25:11 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/03/25 17:16:55 by mohcine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	ft_atoi(const char *str)
 		res = res * 10 + str[i++] - '0';
 	if (str[i])
 	{
-		ft_printf("reading error");
+		ft_printf("\033[0;31mreading error\n");
 		exit(1);
 	}
 	return (signe * res);
