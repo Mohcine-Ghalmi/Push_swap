@@ -27,15 +27,16 @@ int main(int argc, char **argv)
 	char *join;
 	
 	i = 1;
+	join = ft_calloc(1, sizeof(char));
 	if (argc >= 2)
 	{
 		while (argv[i])
-			join = ft_strjoin(join, argv[i++]);
+			join = ft_strjoin(join, argv[i++], ' ');
 		split = ft_split(join, ' ');
 		check(split);
 		i = 0;
 		while (split[i])
 			ft_printf("%d\n", ft_atoi(split[i++]));
-	}
-	ft_printf("\033[0;31mless parameter\n");
+	}else
+	return (0);
 }

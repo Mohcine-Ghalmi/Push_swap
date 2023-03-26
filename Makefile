@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mohcine <mohcine@student.42.fr>            +#+  +:+       +#+         #
+#    By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/07 14:50:27 by mghalmi           #+#    #+#              #
-#    Updated: 2023/03/25 17:32:42 by mohcine          ###   ########.fr        #
+#    Updated: 2023/03/26 17:42:11 by mghalmi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = Push_swap
 
-SRC = test.c
+SRC = Push_swap.c read_data.c
 
 HEADER = push_swap.h
 
@@ -29,8 +29,8 @@ $(NAME) : $(HEADER)
 	cc -Wall -Wextra -Werror $(SRC) libft/libft.a ft_printf/libftprintf.a -o $(NAME)
 
 clean :
-	# make clean -C $(LIBFTDIR)
-	# make clean -C $(PRINTFDIR)
+	make clean -C $(LIBFTDIR)
+	make clean -C $(PRINTFDIR)
 
 fclean : 
 	# make fclean -C $(LIBFTDIR)
