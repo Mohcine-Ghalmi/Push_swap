@@ -6,11 +6,31 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 15:29:08 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/03/26 17:17:36 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/03/26 18:18:27 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+void	check_empty(char const *str)
+{
+	int	i;
+	int	count;
+
+	count = 0;
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == ' ' || str[i] == '\t')
+			count++;
+		i++;
+	}
+	if (count == i)
+	{
+		ft_printf("\033[0;31mempty value");
+		exit(0);
+	}
+}
 
 char	*ft_strjoin(char const *s1, char const *s2, int sep)
 {
@@ -21,6 +41,7 @@ char	*ft_strjoin(char const *s1, char const *s2, int sep)
 	i = 0;
 	if (!s1 || !s2)
 		return (NULL);
+	check_empty(s2);
 	res = (char *)malloc((sizeof(char) * (ft_strlen(s1) + ft_strlen(s2)) + 2));
 	if (!res)
 		return (NULL);
