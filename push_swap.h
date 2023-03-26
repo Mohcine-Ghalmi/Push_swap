@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 14:50:31 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/03/26 17:40:02 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/03/26 17:47:53 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@
 typedef struct stack
 {
 	long	nbr;
-	struct	t_stack	*after;
-	struct	t_stack	*before;
+	int		pos;
+	struct	t_stack	*coming;
 }   t_stack;
 
 int readingData(char **argv);
