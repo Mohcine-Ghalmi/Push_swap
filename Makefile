@@ -6,13 +6,14 @@
 #    By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/07 14:50:27 by mghalmi           #+#    #+#              #
-#    Updated: 2023/03/26 18:18:43 by mghalmi          ###   ########.fr        #
+#    Updated: 2023/03/28 00:49:41 by mghalmi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = Push_swap
 
 SRC = Push_swap.c read_data.c
+# SRC = test.c
 
 HEADER = push_swap.h
 
@@ -29,8 +30,8 @@ $(NAME) : $(HEADER)
 	cc -Wall -Wextra -Werror $(SRC) libft/libft.a ft_printf/libftprintf.a -o $(NAME)
 
 clean :
-	make clean -C $(LIBFTDIR)
-	make clean -C $(PRINTFDIR)
+	# make clean -C $(LIBFTDIR)
+	# make clean -C $(PRINTFDIR)
 
 fclean : 
 	# make fclean -C $(LIBFTDIR)
