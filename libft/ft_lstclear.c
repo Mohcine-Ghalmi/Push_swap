@@ -6,13 +6,13 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 10:25:13 by mghalmi           #+#    #+#             */
-/*   Updated: 2022/10/27 04:24:31 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/03/28 00:11:31 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+void	ft_lstclear(t_list **lst, void (*del)(long))
 {
 	t_list	*tmp;
 

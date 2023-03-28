@@ -6,13 +6,13 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 10:22:56 by mghalmi           #+#    #+#             */
-/*   Updated: 2022/10/20 12:12:33 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/03/28 00:10:54 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
+void	ft_lstdelone(t_list *lst, void (*del)(long))
 {
 	if (!lst || !del)
 		return ;

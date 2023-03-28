@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 11:41:18 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/03/26 17:17:19 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/03/28 00:15:31 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,17 +57,17 @@ void	*ft_calloc(size_t count, size_t size);
 char	*ft_strtrim(char const *s1, char const *set);
 typedef struct s_list
 {
-	void			*content;
+	long			content;
+	int				pos;
 	struct s_list	*next;
 }					t_list;
 void	ft_lstadd_back(t_list **list, t_list *new);
 void	ft_lstadd_front(t_list **lst, t_list *new);
-void	ft_lstclear(t_list **lst, void (*del)(void *));
-void	ft_lstdelone(t_list *lst, void (*del)(void *));
-void	ft_lstiter(t_list *lst, void (*f)(void *));
+void	ft_lstclear(t_list **lst, void (*del)(long));
+void	ft_lstdelone(t_list *lst, void (*del)(long));
+void	ft_lstiter(t_list *lst, void (*f)(long));
 t_list	*ft_lstlast(t_list *lst);
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
-t_list	*ft_lstnew(void *content);
+t_list	*ft_lstnew(long content, int pos);
 int		ft_lstsize(t_list *lst);
 
 #endif
