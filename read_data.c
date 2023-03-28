@@ -6,28 +6,33 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 17:42:43 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/03/26 17:40:43 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/03/28 00:56:35 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "push_swap.h"
 
-void	check(char **argv)
+void	check(char **splited)
 {
 	int i;
 	int j;
+	int num1;
+	int num2;
 
 	i = 0;
-	while (argv[i])
+	while (splited[i])
 	{
 		j = i;
-		ft_atoi(argv[i]);
-		while (argv[++j])
-			if (ft_strncmp(argv[i], argv[j], ft_strlen(argv[j])) == 0)
+		num1 = ft_atoi(splited[i]);
+		while (splited[++j])
+		{
+			num2 = ft_atoi(splited[j]);
+			if (num1 == num2)
 			{
 				ft_printf("\033[0;31mduplicated value\n");
-				exit(0);
+				exit(1);
 			}
+		}
 		i++;
 	}
 }
@@ -37,15 +42,22 @@ int readingData(char **argv)
 	int i;
 	char **split;
 	char *join;
-	
+	t_list *dataStart;
+
 	i = 1;
+	dataStart = NULL;
 	join = ft_calloc(1, sizeof(char));
 	while (argv[i])
 		join = ft_strjoin(join, argv[i++], ' ');
 	split = ft_split(join, ' ');
 	check(split);
-	i = 0;
-	while (split[i])
-		ft_printf("%d\n", ft_atoi(split[i++]));
+	i = -1;
+	while (split[++i])
+		ft_lstadd_back(&dataStart, ft_lstnew(ft_atoi(split[i]), i));
+	while (dataStart)
+	{
+		printf("value = %ld || position =  %d\n", dataStart->content, dataStart->pos);
+		dataStart = dataStart->next;
+	}
 	return (0);
 }
