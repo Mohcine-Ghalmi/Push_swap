@@ -26,12 +26,15 @@ int main(int argc, char **argv)
 	char **split;
 	char *join;
 	t_list *dataStart;
+	t_list *stackB;
+	t_list *tmp;
 	
 	i = 1;
 	join = ft_calloc(1, sizeof(char));
 	if (argc >= 2)
 	{
 		dataStart = NULL;
+		stackB = NULL;
 		while (argv[i])
 			join = ft_strjoin(join, argv[i++], ' ');
 		split = ft_split(join, ' ');
@@ -40,10 +43,21 @@ int main(int argc, char **argv)
 		while (split[++i])
 			ft_lstadd_back(&dataStart, ft_lstnew(ft_atoi(split[i]), i));
 		i = 0;
+		puts("satckA");
+		tmp = dataStart;
 		while (dataStart)
 		{
 			printf("value = %ld || position =  %d\n", dataStart->content, dataStart->pos);
 			dataStart = dataStart->next;
+		}
+		// puts("stackB");
+		// pushing(tmp, stackB, 'b');
+		puts("\nafter");
+		pushing(tmp, stackB, 'b');
+		while (tmp)
+		{
+			printf("value = %ld || position =  %d\n", tmp->content, tmp->pos);
+			tmp = tmp->next;
 		}
 	}else
 		ft_printf("----idk fih----\n");
