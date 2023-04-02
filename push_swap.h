@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 14:50:31 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/03/28 17:42:29 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/04/02 22:08:28 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@
 int readingData(char **argv);
 void	swaping(t_list *stack, int stackAlpha);
 void	ss(t_list *stackA, t_list *stackB);
-void	pushing(t_list *sender, t_list *receiver, int stackAlpha);
+void pushingToB(t_list **sender, t_list **receiver, int stackAlpha);
 
 #endif

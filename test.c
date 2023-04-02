@@ -1,21 +1,31 @@
 #include "push_swap.h"
 
-void	check(char **argv)
+void	check(char **splited)
 {
 	int i;
 	int j;
+	long num1;
+	long num2;
 
 	i = 0;
-	while (argv[i])
+	while (splited[i])
 	{
 		j = i;
-		ft_atoi(argv[i]);
-		while (argv[++j])
-			if (ft_strncmp(argv[i], argv[j], ft_strlen(argv[j])) == 0)
+		num1 = ft_atoi(splited[i]);
+		if (num1 < -2147483648 || num1 > 2147483647)
+		{
+			ft_printf("\033[0;31msize error\n");
+			exit(1);
+		}
+		while (splited[++j])
+		{
+			num2 = ft_atoi(splited[j]);
+			if (num1 == num2)
 			{
 				ft_printf("\033[0;31mduplicated value\n");
-				exit(0);
+				exit(1);
 			}
+		}
 		i++;
 	}
 }
@@ -28,7 +38,7 @@ int main(int argc, char **argv)
 	t_list *dataStart;
 	t_list *stackB;
 	t_list *tmp;
-	
+
 	i = 1;
 	join = ft_calloc(1, sizeof(char));
 	if (argc >= 2)
@@ -47,18 +57,26 @@ int main(int argc, char **argv)
 		tmp = dataStart;
 		while (dataStart)
 		{
-			printf("value = %ld || position =  %d\n", dataStart->content, dataStart->pos);
+			printf("value = %ld || position =  %d\n",dataStart->content, dataStart->pos);
 			dataStart = dataStart->next;
 		}
-		// puts("stackB");
-		// pushing(tmp, stackB, 'b');
-		puts("\nafter");
-		pushing(tmp, stackB, 'b');
+		puts("stackB");
+		// ft_lstadd_front(&stackB, ft_lstnew(tmp->content, tmp->pos));
+		// tmp = tmp->next;
+		// pushingToB(&tmp, &stackB, 'b');
+		pushingToB(&tmp, &stackB, 'b');
+		// swaping(tmp, 'a');
+		while (stackB)
+		{
+			printf("value = %ld || position =  %d\n", stackB->content, stackB->pos);
+			stackB = stackB->next;
+		}
+		puts("stackA");
 		while (tmp)
 		{
 			printf("value = %ld || position =  %d\n", tmp->content, tmp->pos);
 			tmp = tmp->next;
-		}
+		 }
 	}else
 		ft_printf("----idk fih----\n");
 	return (0);

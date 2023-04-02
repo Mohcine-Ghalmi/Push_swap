@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 17:42:43 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/03/28 00:56:35 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/04/02 15:31:27 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,11 @@ void	check(char **splited)
 	{
 		j = i;
 		num1 = ft_atoi(splited[i]);
+		if (num1 < -2147483647 || num1 > 2147483647)
+		{
+			ft_printf("\033[0;31msize error\n");
+			exit(1);
+		}
 		while (splited[++j])
 		{
 			num2 = ft_atoi(splited[j]);

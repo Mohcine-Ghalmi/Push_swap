@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: sleeps <sleeps@student.42.fr>              +#+  +:+       +#+         #
+#    By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/07 14:50:27 by mghalmi           #+#    #+#              #
-#    Updated: 2023/03/31 18:00:17 by sleeps           ###   ########.fr        #
+#    Updated: 2023/04/02 22:09:02 by mghalmi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = Push_swap
 
-SRC = Push_swap.c read_data.c
-# SRC = test.c swaping.c pushing.c
+# SRC = Push_swap.c read_data.c
+SRC = test.c swaping.c pushing.c
 
 HEADER = push_swap.h
 
