@@ -6,22 +6,49 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 17:35:21 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/04/02 22:11:41 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/04/04 15:10:18 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	f(long pos)
+void	pushingToB(t_list **sender, t_list **receiver)
 {
-	pos += 1;
+	t_list *tmp;
+	t_list *tmpRec;
+	int i;
+	
+	i = 0;
+	ft_lstadd_front(receiver, ft_lstnew((*sender)->content, 0));
+	*sender = (*sender)->next;
+	tmpRec = *receiver;
+	while (tmpRec)
+	{
+		tmpRec->pos = i++;
+		tmpRec = tmpRec->next;
+	}
+	tmp = *sender;
+	while (tmp)
+	{
+		tmp->pos--;
+		tmp = tmp->next;
+	}
+	printf("pb\n");
 }
 
-
-void pushingToB(t_list **sender, t_list **receiver, int stackAlpha)
+void	pushingToA(t_list **sender, t_list **receiver)
 {
-	ft_lstadd_front(receiver, ft_lstnew((*sender)->content, (*sender)->pos));
-	*sender = (*sender)->next;
-	ft_lstiter(*sender, f);
-	printf("p%c\n", stackAlpha);
+	t_list *tmp;
+	int	i;
+
+	i = 0;
+	ft_lstadd_front(receiver, ft_lstnew((*sender)->content, (*receiver)->pos));
+	(*sender) = (*sender)->next;
+	tmp = *receiver;
+	while (tmp)
+	{
+		tmp->pos = i++;
+		tmp = tmp->next;
+	}
+	printf("pa\n");	
 }

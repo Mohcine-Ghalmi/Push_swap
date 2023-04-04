@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 14:50:31 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/04/02 22:08:28 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/04/04 22:15:10 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,13 @@
 # include <math.h>
 # include "libft/libft.h"
 
-int readingData(char **argv);
+t_list	*readingData(char **argv);
 void	swaping(t_list *stack, int stackAlpha);
 void	ss(t_list *stackA, t_list *stackB);
-void pushingToB(t_list **sender, t_list **receiver, int stackAlpha);
+void	pushingToB(t_list **sender, t_list **receiver);
+void	pushingToA(t_list **sender, t_list **receiver);
+void	rotate(t_list *stack, int stackApha);
+void	rr(t_list *stackA, t_list *stackB);
+void    reverseRotate(t_list *stack, int stackAlpha);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 17:42:43 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/04/02 15:31:27 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/04/04 14:11:24 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	check(char **splited)
 	}
 }
 
-int readingData(char **argv)
+t_list *readingData(char **argv)
 {
 	int i;
 	char **split;
@@ -59,10 +59,5 @@ int readingData(char **argv)
 	i = -1;
 	while (split[++i])
 		ft_lstadd_back(&dataStart, ft_lstnew(ft_atoi(split[i]), i));
-	while (dataStart)
-	{
-		printf("value = %ld || position =  %d\n", dataStart->content, dataStart->pos);
-		dataStart = dataStart->next;
-	}
-	return (0);
+	return (dataStart);
 }

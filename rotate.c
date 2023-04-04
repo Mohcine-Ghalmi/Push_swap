@@ -1,31 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Push_swap.c                                        :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/19 16:47:16 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/04/04 20:06:58 by mghalmi          ###   ########.fr       */
+/*   Created: 2023/04/04 15:14:57 by mghalmi           #+#    #+#             */
+/*   Updated: 2023/04/04 23:04:49 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "push_swap.h"
 
-int main(int argc, char **argv)
+void	rotate(t_list *stack, int stackApha)
 {
-    t_list  *stackA;
+	long	head;
+	t_list	*tmp;
+	
+	head = stack->content;
+	tmp = stack;
+	while (tmp)
+	{
+		if (tmp->next == NULL)
+		{
+			tmp->content = head;
+			break;
+		}
+		tmp->content = tmp->next->content;
+		tmp = tmp->next;
+	}
+	if (stackApha != 0)
+		ft_printf("r%c\n", stackApha);
+}
 
-    if (argc >= 2)
-    {
-        stackA = readingData(argv);
-        // while (stackA)
-        // {
-        //     printf("value = %ld || position = %d\n", stackA->content, stackA->pos);
-        //     stackA = stackA->next;
-        // }
-    }
-    else
-		  ft_printf("\033[0;31mless parameter\n");
-    return 0;
+void	rr(t_list *stackA, t_list *stackB)
+{
+	rotate(stackA, 0);
+	rotate(stackB, 0);
+	ft_printf("rr\n");
 }

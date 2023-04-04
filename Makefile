@@ -6,14 +6,14 @@
 #    By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/07 14:50:27 by mghalmi           #+#    #+#              #
-#    Updated: 2023/04/02 22:09:02 by mghalmi          ###   ########.fr        #
+#    Updated: 2023/04/04 17:31:39 by mghalmi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = Push_swap
 
 # SRC = Push_swap.c read_data.c
-SRC = test.c swaping.c pushing.c
+SRC = test.c swaping.c pushing.c read_data.c rotate.c reverse_rotate.c
 
 HEADER = push_swap.h
 

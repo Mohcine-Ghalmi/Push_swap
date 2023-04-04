@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 16:04:44 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/03/28 17:34:28 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/04/04 23:05:57 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,13 @@ void	swaping(t_list *stack, int stackAlpha)
 	tmp = stack->content;
 	stack->content = stack->next->content;
 	stack->next->content = tmp;
-	ft_printf("s%c\n", stackAlpha);
+	if (stackAlpha != 0)
+		ft_printf("s%c\n", stackAlpha);
 }
 
 void	ss(t_list *stackA, t_list *stackB)
 {
-	swaping(stackA, 'a');
-	swaping(stackB, 'b');
+	swaping(stackA, 0);
+	swaping(stackB, 0);
+	ft_printf("ss\n");
 }
