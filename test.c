@@ -53,3 +53,33 @@ int main(int argc, char **argv)
 		ft_printf("----idk fih----\n");
 	return (0);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
