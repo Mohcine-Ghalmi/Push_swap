@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 17:42:43 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/04/04 14:11:24 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/04/05 22:08:06 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ void	check(char **splited)
 {
 	int i;
 	int j;
-	int num1;
-	int num2;
+	long num1;
+	long num2;
 
 	i = 0;
 	while (splited[i])
