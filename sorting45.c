@@ -6,19 +6,19 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 15:43:12 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/04/06 18:03:56 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/04/06 21:35:17 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "push_swap.h"
 
-void    minOnTop(t_list *stack)
+void    minOnTop(t_list **stack)
 {
     t_list  *tmp;
     int    minPos;
     long    minCont;
 
-    tmp = stack;
+    tmp = *stack;
     minPos = tmp->pos;
     minCont = tmp->content;
     tmp = tmp->next;
@@ -31,23 +31,27 @@ void    minOnTop(t_list *stack)
         }
         tmp = tmp->next;
     }
-    if (minPos > ft_lstsize(stack) / 2)
-        while (ft_lstsize(stack) - minPos++)
-            reverseRotate(stack, 'a');
-    if (minPos <= ft_lstsize(stack) / 2)
+    if (minPos > ft_lstsize(*stack) / 2)
+        while (ft_lstsize(*stack) - minPos++)
+            reverseRotate(*stack, 'a');
+    if (minPos <= ft_lstsize(*stack) / 2)
         while (minPos--)
-            rotate(stack, 'a');
+            rotate(*stack, 'a');
 }
 
-void    sorting5AndLess(t_list *stackA, t_list *stackB)
+void    sorting5AndLess(t_list **stackA, t_list **stackB)
 {
     minOnTop(stackA);
-    pushingToB(&stackA, &stackB);
-    if (ft_lstsize(stackA) == 5)
+    pushingToB(stackA, stackB);
+    if (ft_lstsize(*stackA) == 4)
     {
         minOnTop(stackA);
-        pushingToB(&stackA, &stackB);
-        if (stackB->content < stackB->next->content)
-            swaping(stackB, 'b');
+        pushingToB(stackA, stackB);
+        if ((*stackB)->content < (*stackB)->next->content)
+            swaping(*stackB, 'b');
     }
+    sorting3(*stackA);
+    pushingToA(stackB, stackA);
+    if (ft_lstsize(*stackB))
+        pushingToA(stackB, stackA);   
 }
