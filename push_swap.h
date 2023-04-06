@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 14:50:31 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/04/05 16:23:27 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/04/06 15:57:57 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,6 @@ void	rotate(t_list *stack, int stackApha);
 void	rr(t_list *stackA, t_list *stackB);
 void    reverseRotate(t_list *stack, int stackAlpha);
 void    sorting3(t_list *stackA);
+void    sorting5AndLess(t_list *stackA, t_list *stackB);
 
 #endif
