@@ -6,11 +6,23 @@
 /*   By: sleeps <sleeps@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 16:18:29 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/04/07 21:41:05 by sleeps           ###   ########.fr       */
+/*   Updated: 2023/04/07 21:48:48 by sleeps           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void    sorting2(t_list *stackA)
+{
+    long    first;
+    long    second;
+
+    first = stackA->content;
+    second = stackA->next->content;
+    if (first > second)
+        swaping(stackA, 'a');
+    exit(0);
+}
 
 void    sorting3(t_list *stackA)
 {
@@ -18,6 +30,8 @@ void    sorting3(t_list *stackA)
     long first;
     long middle;
 
+    if (ft_lstsize(stackA) == 2)
+        sorting2(stackA);
     last = stackA->next->next->content;
     middle = stackA->next->content;
     first = stackA->content;

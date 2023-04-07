@@ -32,7 +32,7 @@ int main(int argc, char **argv)
 		stackA = readingData(argv);
 		stackB = NULL;
 		isSorted(stackA);
-		if (ft_lstsize(stackA) == 3)
+		if (ft_lstsize(stackA) <= 3)
 			sorting3(stackA);
 		else if (ft_lstsize(stackA) <= 5)
 			sorting5AndLess(&stackA, &stackB);
