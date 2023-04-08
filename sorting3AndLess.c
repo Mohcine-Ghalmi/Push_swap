@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sorting3.c                                         :+:      :+:    :+:   */
+/*   sorting3AndLess.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sleeps <sleeps@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 16:18:29 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/04/07 21:48:48 by sleeps           ###   ########.fr       */
+/*   Updated: 2023/04/08 14:29:58 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void    sorting2(t_list *stackA)
     exit(0);
 }
 
-void    sorting3(t_list *stackA)
+void    sorting3AndLess(t_list *stackA)
 {
     long last;
     long first;

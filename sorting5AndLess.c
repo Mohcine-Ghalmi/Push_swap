@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sorting45.c                                        :+:      :+:    :+:   */
+/*   sorting5AndLess.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 15:43:12 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/04/06 21:41:46 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/04/08 14:30:31 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void    sorting5AndLess(t_list **stackA, t_list **stackB)
         minOnTop(stackA);
         pushingToB(stackA, stackB);
     }
-    sorting3(*stackA);
+    sorting3AndLess(*stackA);
     pushingToA(stackB, stackA);
     if (ft_lstsize(*stackB))
         pushingToA(stackB, stackA);   

@@ -33,26 +33,23 @@ int main(int argc, char **argv)
 		stackB = NULL;
 		isSorted(stackA);
 		if (ft_lstsize(stackA) <= 3)
-			sorting3(stackA);
+			sorting3AndLess(stackA);
 		else if (ft_lstsize(stackA) <= 5)
 			sorting5AndLess(&stackA, &stackB);
-<<<<<<< HEAD
-		if (ft_lstsize(stackA) <= 100)
-			sorting100AndLess(&stackA, &stackB);
+		// if (ft_lstsize(stackA) <= 100)
+		// 	sorting100AndLess(&stackA, &stackB);
 		puts("-----------------------------stackA----------------------");
 		while (stackA)
 		{
 			printf("value == %ld || position == %d\n", stackA->content, stackA->pos);
 			stackA = stackA->next;
 		}
-=======
 		// puts("-----------------------------stackA----------------------");
 		// while (stackA)
 		// {
 		// 	printf("value == %ld || position == %d\n", stackA->content, stackA->pos);
 		// 	stackA = stackA->next;
 		// }
->>>>>>> f250dbbe8e324a3dd162adb99de9b25dedae7927
 	}else
 		ft_printf("----idk fih----\n");
 	return (0);
