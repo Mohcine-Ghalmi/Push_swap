@@ -13,6 +13,8 @@ int main(int argc, char **argv)
 			sorting3(stackA);
 		if (ft_lstsize(stackA) <= 5)
 			sorting5AndLess(&stackA, &stackB);
+		if (ft_lstsize(stackA) <= 100)
+			sorting100AndLess(&stackA, &stackB);
 		puts("-----------------------------stackA----------------------");
 		while (stackA)
 		{

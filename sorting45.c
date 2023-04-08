@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 15:43:12 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/04/06 21:35:17 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/04/06 21:41:46 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,6 @@ void    sorting5AndLess(t_list **stackA, t_list **stackB)
     {
         minOnTop(stackA);
         pushingToB(stackA, stackB);
-        if ((*stackB)->content < (*stackB)->next->content)
-            swaping(*stackB, 'b');
     }
     sorting3(*stackA);
     pushingToA(stackB, stackA);
