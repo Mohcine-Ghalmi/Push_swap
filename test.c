@@ -36,14 +36,16 @@ int main(int argc, char **argv)
 			sorting3AndLess(stackA);
 		else if (ft_lstsize(stackA) <= 5)
 			sorting5AndLess(&stackA, &stackB);
-		// if (ft_lstsize(stackA) <= 100)
-		// 	sorting100AndLess(&stackA, &stackB);
-		puts("-----------------------------stackA----------------------");
-		while (stackA)
-		{
-			printf("value == %ld || position == %d\n", stackA->content, stackA->pos);
-			stackA = stackA->next;
-		}
+		else if (ft_lstsize(stackA) <= 100)
+			sorting100AndLess(&stackA, &stackB);
+		else if (ft_lstsize(stackA) <= 500)
+			sorting500AndLess(&stackA, &stackB);
+		// puts("-----------------------------stackA----------------------");
+		// while (stackA)
+		// {
+		// 	printf("value == %ld || position == %d\n", stackA->content, stackA->pos);
+		// 	stackA = stackA->next;
+		// }
 		// puts("-----------------------------stackA----------------------");
 		// while (stackA)
 		// {
