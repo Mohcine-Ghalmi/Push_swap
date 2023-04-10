@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 15:29:08 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/03/26 18:18:27 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/04/10 21:53:28 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,18 @@ void	check_empty(char const *str)
 	}
 }
 
-char	*ft_strjoin(char const *s1, char const *s2, int sep)
+char	*ft_strjoin(char *s1, char const *s2, int sep)
 {
 	char	*res;
 	int		i;
 	int		j;
 
 	i = 0;
+	if (!s1)
+	{
+		s1 = (char *)malloc(1 * sizeof(char));
+		s1[0] = '\0';
+	}
 	if (!s1 || !s2)
 		return (NULL);
 	check_empty(s2);
@@ -55,5 +60,6 @@ char	*ft_strjoin(char const *s1, char const *s2, int sep)
 	while (s2[j])
 		res[i++] = s2[j++];
 	res[i] = '\0';
+	free(s1);
 	return (res);
 }

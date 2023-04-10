@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: sleeps <sleeps@student.42.fr>              +#+  +:+       +#+         #
+#    By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/07 14:50:27 by mghalmi           #+#    #+#              #
-#    Updated: 2023/04/10 06:24:42 by sleeps           ###   ########.fr        #
+#    Updated: 2023/04/10 21:53:42 by mghalmi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,8 +35,8 @@ nums :
 	cc -Wall -Wextra -Werror generate_numbers.c -o numbers
 
 clean :
-	# make clean -C $(LIBFTDIR)
-	# make clean -C $(PRINTFDIR)
+	make clean -C $(LIBFTDIR)
+	make clean -C $(PRINTFDIR)
 
 fclean : 
 	# make fclean -C $(LIBFTDIR)

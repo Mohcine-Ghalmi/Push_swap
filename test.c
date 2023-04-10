@@ -22,6 +22,8 @@ void	isSorted(t_list *stack)
 	}
 }
 
+void	test(){system("leaks Push_swap");}
+
 int main(int argc, char **argv)
 {
 	t_list *stackA;
@@ -56,6 +58,6 @@ int main(int argc, char **argv)
 	ft_lstclear(&stackB, NULL);
 	}else
 		ft_printf("----idk fih----\n");
-	// while (1);
+	atexit(test);
 	return (0);
 }
