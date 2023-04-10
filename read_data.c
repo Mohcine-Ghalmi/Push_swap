@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_data.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sleeps <sleeps@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 17:42:43 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/04/05 22:08:06 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/04/10 06:45:05 by sleeps           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,26 @@ t_list *readingData(char **argv)
 
 	i = 1;
 	dataStart = NULL;
-	join = ft_calloc(1, sizeof(char));
+	join = NULL;
+	join = ft_strjoin("", argv[i++], ' ');
+	if (!join)
+    	return (NULL);
 	while (argv[i])
 		join = ft_strjoin(join, argv[i++], ' ');
 	split = ft_split(join, ' ');
+	if (!split)
+	{
+    	free(join);
+    	return (NULL);
+	}
+	free(join);
 	check(split);
 	i = -1;
 	while (split[++i])
+	{
 		ft_lstadd_back(&dataStart, ft_lstnew(ft_atoi(split[i]), i));
+		free(split[i]);
+	}
+	free(split);
 	return (dataStart);
 }

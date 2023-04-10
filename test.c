@@ -46,13 +46,16 @@ int main(int argc, char **argv)
 		// 	printf("value == %ld || position == %d\n", stackA->content, stackA->pos);
 		// 	stackA = stackA->next;
 		// }
-		// puts("-----------------------------stackA----------------------");
-		// while (stackA)
-		// {
-		// 	printf("value == %ld || position == %d\n", stackA->content, stackA->pos);
-		// 	stackA = stackA->next;
-		// }
+		puts("-----------------------------stackA----------------------");
+		while (stackA)
+		{
+			printf("value == %ld || position == %d\n", stackA->content, stackA->pos);
+			stackA = stackA->next;
+		}
+	ft_lstclear(&stackA, NULL);
+	ft_lstclear(&stackB, NULL);
 	}else
 		ft_printf("----idk fih----\n");
+	// while (1);
 	return (0);
 }
