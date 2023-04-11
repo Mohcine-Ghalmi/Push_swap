@@ -6,11 +6,26 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 15:43:12 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/04/08 14:30:31 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/04/11 23:05:46 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "push_swap.h"
+
+int findMin(t_list *stack, long toFind)
+{
+    int count;
+
+    count = 0;
+    while (stack)
+    {
+        if (stack->content == toFind)
+            break;
+        stack = stack->next;
+        count++;
+    }
+    return (count);
+}
 
 void    minOnTop(t_list **stack)
 {
@@ -19,24 +34,21 @@ void    minOnTop(t_list **stack)
     long    minCont;
 
     tmp = *stack;
-    minPos = tmp->pos;
     minCont = tmp->content;
     tmp = tmp->next;
     while (tmp)
     {
         if (minCont > tmp->content)
-        {
-            minPos = tmp->pos;
             minCont = tmp->content;
-        }
         tmp = tmp->next;
     }
+    minPos = findMin(*stack, minCont);
     if (minPos > ft_lstsize(*stack) / 2)
         while (ft_lstsize(*stack) - minPos++)
-            reverseRotate(*stack, 'a');
-    if (minPos <= ft_lstsize(*stack) / 2)
+            reverseRotate(stack, 'a');
+    else
         while (minPos--)
-            rotate(*stack, 'a');
+            rotate(stack, 'a');
 }
 
 void    sorting5AndLess(t_list **stackA, t_list **stackB)

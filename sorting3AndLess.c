@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 16:18:29 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/04/11 18:27:05 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/04/11 23:05:41 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,17 +38,17 @@ void    sorting3AndLess(t_list *stackA)
     if (last > first && last > middle && first > middle)
         swaping(stackA, 'a');       
     if (first > middle && first > last && middle < last)
-        rotate(stackA, 'a');
+        rotate(&stackA, 'a');
     if (first > middle && first > last && middle > last)
     {
         swaping(stackA, 'a');       
-        reverseRotate(stackA, 'a');   
+        reverseRotate(&stackA, 'a');
     }
     if (middle > first && middle > last && last > first)
     {
         swaping(stackA, 'a');
-        rotate(stackA, 'a');
+        rotate(&stackA, 'a');
     }
     if (middle > first && middle > last && first > last)
-        reverseRotate(stackA, 'a');
+        reverseRotate(&stackA, 'a');
 }

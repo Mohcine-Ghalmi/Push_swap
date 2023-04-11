@@ -42,22 +42,14 @@ int main(int argc, char **argv)
 			sorting100AndLess(&stackA, &stackB);
 		else if (ft_lstsize(stackA) <= 500)
 			sorting500AndLess(&stackA, &stackB);
-		puts("-----------------------------stackA----------------------");
-		stackB = stackA;
-		while (stackA)
-		{
-			printf("value == %ld || position == %d\n", stackA->content, stackA->pos);
-			stackA = stackA->next;
-		}
-		ft_lstclear(&stackB, NULL);
-		// puts("-----------------------------stackA----------------------");
 		// while (stackA)
 		// {
-		// 	printf("value == %ld || position == %d\n", stackA->content, stackA->pos);
+		// 	printf("value == %ld\n", stackA->content);
 		// 	stackA = stackA->next;
 		// }
+		// ft_lstclear(&stackA, NULL);
 	}else
 		ft_printf("----idk fih----\n");
-	atexit(test);
+	// atexit(test);
 	return (0);
 }
