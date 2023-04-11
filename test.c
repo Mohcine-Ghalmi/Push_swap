@@ -18,7 +18,7 @@ void	isSorted(t_list *stack)
 	if (++count == ft_lstsize(stack))
 	{
         ft_printf("\033[0;31mthe stack already sorted\n");
-		exit(0);
+		return ;
 	}
 }
 
@@ -33,28 +33,29 @@ int main(int argc, char **argv)
 	{
 		stackA = readingData(argv);
 		stackB = NULL;
-		// isSorted(stackA);
-		// if (ft_lstsize(stackA) <= 3)
-		// 	sorting3AndLess(stackA);
-		// else if (ft_lstsize(stackA) <= 5)
-		// 	sorting5AndLess(&stackA, &stackB);
-		// else if (ft_lstsize(stackA) <= 100)
-		// 	sorting100AndLess(&stackA, &stackB);
-		// else if (ft_lstsize(stackA) <= 500)
-		// 	sorting500AndLess(&stackA, &stackB);
+		isSorted(stackA);
+		if (ft_lstsize(stackA) <= 3)
+			sorting3AndLess(stackA);
+		else if (ft_lstsize(stackA) <= 5)
+			sorting5AndLess(&stackA, &stackB);
+		else if (ft_lstsize(stackA) <= 100)
+			sorting100AndLess(&stackA, &stackB);
+		else if (ft_lstsize(stackA) <= 500)
+			sorting500AndLess(&stackA, &stackB);
+		puts("-----------------------------stackA----------------------");
+		stackB = stackA;
+		while (stackA)
+		{
+			printf("value == %ld || position == %d\n", stackA->content, stackA->pos);
+			stackA = stackA->next;
+		}
+		ft_lstclear(&stackB, NULL);
 		// puts("-----------------------------stackA----------------------");
 		// while (stackA)
 		// {
 		// 	printf("value == %ld || position == %d\n", stackA->content, stackA->pos);
 		// 	stackA = stackA->next;
 		// }
-		ft_lstclear(&stackA, NULL);
-		puts("-----------------------------stackA----------------------");
-		while (stackA)
-		{
-			printf("value == %ld || position == %d\n", stackA->content, stackA->pos);
-			stackA = stackA->next;
-		}
 	}else
 		ft_printf("----idk fih----\n");
 	atexit(test);
