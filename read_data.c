@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 17:42:43 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/04/10 21:51:40 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/04/11 16:06:35 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ t_list *readingData(char **argv)
 		ft_lstadd_back(&dataStart, ft_lstnew(ft_atoi(split[i]), i));
 		free(split[i]);
 	}
+	indexStack(&dataStart);
 	free(split);
 	return (dataStart);
 }

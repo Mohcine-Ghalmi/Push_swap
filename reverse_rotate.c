@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 16:54:17 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/04/04 23:06:22 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/04/11 16:03:57 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void    reverseRotate(t_list *stack, int stackAlpha)
 		tmp->content = nbr[i++];
 		tmp = tmp->next;
 	}
+	indexStack(&stack);
 	if (stackAlpha != 0)
 		ft_printf("rr%c\n", stackAlpha);
 	free(nbr);

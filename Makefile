@@ -6,7 +6,7 @@
 #    By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/07 14:50:27 by mghalmi           #+#    #+#              #
-#    Updated: 2023/04/10 21:53:42 by mghalmi          ###   ########.fr        #
+#    Updated: 2023/04/11 16:22:19 by mghalmi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = Push_swap
 # SRC = Push_swap.c
 SRC = test.c 
 UTILS = swaping.c pushing.c read_data.c rotate.c reverse_rotate.c sorting3AndLess.c sorting5AndLess.c \
-		sorting100AndLess.c sorting500AndLess.c
+		sorting100AndLess.c sorting500AndLess.c index.c
 
 HEADER = push_swap.h
 

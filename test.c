@@ -33,29 +33,28 @@ int main(int argc, char **argv)
 	{
 		stackA = readingData(argv);
 		stackB = NULL;
-		isSorted(stackA);
-		if (ft_lstsize(stackA) <= 3)
-			sorting3AndLess(stackA);
-		else if (ft_lstsize(stackA) <= 5)
-			sorting5AndLess(&stackA, &stackB);
-		else if (ft_lstsize(stackA) <= 100)
-			sorting100AndLess(&stackA, &stackB);
-		else if (ft_lstsize(stackA) <= 500)
-			sorting500AndLess(&stackA, &stackB);
+		// isSorted(stackA);
+		// if (ft_lstsize(stackA) <= 3)
+		// 	sorting3AndLess(stackA);
+		// else if (ft_lstsize(stackA) <= 5)
+		// 	sorting5AndLess(&stackA, &stackB);
+		// else if (ft_lstsize(stackA) <= 100)
+		// 	sorting100AndLess(&stackA, &stackB);
+		// else if (ft_lstsize(stackA) <= 500)
+		// 	sorting500AndLess(&stackA, &stackB);
 		// puts("-----------------------------stackA----------------------");
 		// while (stackA)
 		// {
 		// 	printf("value == %ld || position == %d\n", stackA->content, stackA->pos);
 		// 	stackA = stackA->next;
 		// }
+		ft_lstclear(&stackA, NULL);
 		puts("-----------------------------stackA----------------------");
 		while (stackA)
 		{
 			printf("value == %ld || position == %d\n", stackA->content, stackA->pos);
 			stackA = stackA->next;
 		}
-	ft_lstclear(&stackA, NULL);
-	ft_lstclear(&stackB, NULL);
 	}else
 		ft_printf("----idk fih----\n");
 	atexit(test);
