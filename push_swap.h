@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 14:50:31 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/04/11 23:05:03 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/04/12 20:55:59 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,7 @@ void    sorting100AndLess(t_list **stackA, t_list **stackB);
 void    sorting500AndLess(t_list **stackA, t_list **stackB);
 void    minOnTop(t_list **stack);
 void    indexStack(t_list **stack);
+void    sorting2(t_list *stackA);
+void    justSort(t_list **stackA, t_list **stackB);
 
 #endif

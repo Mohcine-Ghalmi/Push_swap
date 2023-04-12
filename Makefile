@@ -6,7 +6,7 @@
 #    By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/07 14:50:27 by mghalmi           #+#    #+#              #
-#    Updated: 2023/04/11 18:30:45 by mghalmi          ###   ########.fr        #
+#    Updated: 2023/04/12 22:49:07 by mghalmi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = Push_swap
 # SRC = Push_swap.c
 SRC = test.c 
 UTILS = swaping.c pushing.c read_data.c rotate.c reverse_rotate.c sorting3AndLess.c sorting5AndLess.c \
-		sorting100AndLess.c sorting500AndLess.c index.c
+		sorting100AndLess.c sorting500AndLess.c index.c justSort.c
 
 HEADER = push_swap.h
 
@@ -29,7 +29,7 @@ $(NAME) : $(HEADER)
 	# make re -C $(LIBFTDIR)
 	# make bonus -C $(LIBFTDIR)
 	# make re -C $(PRINTFDIR)
-	cc -Wall -Wextra -Werror $(SRC) $(UTILS) libft/libft.a ft_printf/libftprintf.a -o $(NAME)
+	cc -Wall -Wextra -Werror -g $(SRC) $(UTILS) libft/libft.a ft_printf/libftprintf.a -o $(NAME)
 
 nums :
 	cc -Wall -Wextra -Werror generate_numbers.c -o numbers

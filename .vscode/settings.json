@@ -1,6 +1,7 @@
 {
     "C_Cpp.errorSquiggles": "disabled",
     "files.associations": {
-        "chrono": "c"
+        "chrono": "c",
+        "push_swap.h": "c"
     }
 }
