@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 16:18:29 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/04/11 23:05:41 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/04/13 20:20:03 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void    sorting2(t_list *stackA)
     second = stackA->next->content;
     if (first > second)
         swaping(stackA, 'a');
-    return ;
 }
 
 void    sorting3AndLess(t_list *stackA)

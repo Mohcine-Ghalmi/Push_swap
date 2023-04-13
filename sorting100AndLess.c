@@ -6,152 +6,116 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 00:18:34 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/04/12 23:17:31 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/04/13 23:40:02 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "push_swap.h"
 
-void	ft_get_pos(t_list *data, int red, int add, int *c, int *b)
+int findPos(t_list *stack, int nums)
 {
-	t_list *a = data;
-	int i=0;
-	int l=0;
+	int count;
+	t_list *tmp;
 	
-	while (a)
-	{
-		if (a->pos == red)
-			break ;
-		a = a->next;
-		i++;
-	}
-	a = data;
-	while (a)
-	{
-		if (a->pos == add)
-			break ;
-		a = a->next;
-		l++;
-	}
-	if (i > (ft_lstsize(data) / 2))
-		*c = ft_lstsize(data) - i;
-	else
-		*c = i;
-	if (l > (ft_lstsize(data) / 2))
-		*b = ft_lstsize(data) - l;
-	else
-		*b = l;
-}
-
-void ft_small(t_list **stack, int *small, int *big)
-{
-	t_list *tmp;
-	tmp = *stack;
-	*small = 0;
-	*big = 0;
+	count = 0;
+	tmp = stack;
 	while (tmp)
 	{
-		if (tmp->pos > *big)
-			*big = tmp->pos;
+		if (tmp->content == nums)
+			break;
 		tmp = tmp->next;
-	}
-	tmp = *stack;
-	while (tmp)
-	{
-		if (tmp->pos > *small && tmp->pos != *big)
-			*small = tmp->pos;
-		tmp = tmp->next;
-	}
-}
-
-int ft_pos(t_list **stack, int index)
-{
-	t_list *tmp;
-	int count = 0;
-	tmp = *stack;
-	while (tmp)
-	{
-		if (tmp->pos == index)
-			 break;
 		count++;
+	}
+	return (count);
+}
+
+int maxPos(t_list	*stack, long *preMax)
+{
+	int count;
+	t_list	*tmp;
+	long 	max;
+
+	tmp = stack;
+	count = 0;
+	max = tmp->content;
+	*preMax = tmp->content;
+	while (tmp)
+	{
+		if (tmp->content > max)
+			max = tmp->content;
 		tmp = tmp->next;
 	}
-	return count;
+	tmp = stack;
+	while (tmp)
+	{
+		if (tmp->content != max && tmp->content > *preMax)
+			*preMax = tmp->content;
+		tmp = tmp->next;
+	}
+	printf("max value == %ld || premax value == %ld\n", max, *preMax);
+	max = findPos(stack, max);
+	*preMax = findPos(stack, *preMax);
+	printf("max pos == %ld || premax pos == %ld\n", max, *preMax);
+	return (max);
 }
-void	indexOnTop(t_list **stackB, t_list **stackA, int index)
+
+void	pushMaxA(t_list **stackA, t_list **stackB, long pos1, int pos2)
 {
-	int i;
-	
-	i = ft_pos(stackB, index);
-	// printf("----%d\n",i);
-	// printf("----%ld\n",(*stackB)->content);
-	// printf("----%d\n",(*stackB)->pos);
-	if (i > ft_lstsize(*stackB) / 2)
-		while (i--)
+	if (pos2 > ft_lstsize(*stackB) / 2)
+	{
+		while ((ft_lstsize(*stackB) - pos2++))
 			reverseRotate(stackB, 'b');
+	}
 	else
-		while (i++ < ft_lstsize(*stackB))
+		while (pos2-- != 0)
 			rotate(stackB, 'b');
 	pushingToA(stackB, stackA);
+	if (pos1 > ft_lstsize(*stackB) / 2)
+		while ((ft_lstsize(*stackB) - pos1++))
+			reverseRotate(stackB, 'b');
+	else
+		while (pos1-- != 0)
+			rotate(stackB, 'b');
+	printf("2 - what get pushed == %ld\n", (*stackB)->content);
+	pushingToA(stackB, stackA);
+	if (pos1 < pos2)
+			swaping(*stackA, 'a');
 }
 
 void    sorting100AndLess(t_list **stackA, t_list **stackB)
 {
-	int reDo;
-	int add;
-	int a;
-	int b;
-	reDo = (ft_lstsize(*stackA)) / 5;
-	add = reDo;
-	while (*stackA)
+	int chunk;
+	long premax;
+	int max;
+	t_list *tmp;
+
+	chunk = ft_lstsize(*stackA) / 5;
+	justSort(stackA, stackB, chunk);
+	tmp = *stackB;
+	puts("-----------------------stackB-----------------------");
+	while (tmp)
 	{
-		if ((*stackA)->pos >= reDo)
-			rotate(stackA, 'a');
+		printf("value = %ld || pos = %d\n", tmp->content, tmp->pos);
+		tmp = tmp->next;
+	}
+	puts("-----------------------------------------------------");
+
+	while(*stackB)
+	{
+		premax = 0;
+		max = maxPos(*stackB, &premax);
+		if (premax > max)
+			pushMaxA(stackA, stackB, premax, max);
 		else
-		{
-			if ((*stackA)->pos >= (reDo - (add / 2)))
-			{
-				pushingToB(stackA, stackB);
-				rotate(stackB, 'b');
-			}
-			else
-				pushingToB(stackA, stackB);
-		}
-		if (ft_lstsize(*stackB) == reDo)
-			reDo += add;
-	}
-	while (stackB)
-	{
-		ft_small(stackB, &reDo, &add);
-		ft_get_pos(*stackB, reDo,add, &a,&b);
-		// a = ft_pos(stackB, reDo);
-		// b = ft_pos(stackB, add);
-		// if (a > ft_lstsize(*stackB) / 2)
-		// 	a = ft_lstsize(*stackB) - a;
-		// if (b > ft_lstsize(*stackB) / 2)
-		// 	b = ft_lstsize(*stackB) - b;
+			pushMaxA(stackA, stackB, max, premax);
+		sorting2(*stackA);
 		
-		printf("====%d\n",a);
-		printf("====%d\n",b);
-		printf("====%d\n",reDo);
-		printf("====%d\n",add);
-		// exit(1);
-		if (a <= b)
+		tmp = *stackA;
+		puts("--------------------------------------------------");
+		while (tmp)
 		{
-			indexOnTop(stackB, stackA, reDo);
-			indexOnTop(stackB, stackA, add);
-		}else
-		{
-			indexOnTop(stackB, stackA, add);
-			indexOnTop(stackB, stackA, reDo);
-			swaping(*stackA, 'a');
-		}
-		t_list **h= stackA;
-		while ((*h))
-		{
-			printf("---%ld\n",(*h)->content);
-			(*h) = (*h)->next;
+			printf("value = %ld || pos = %d\n", tmp->content, tmp->pos);
+			tmp = tmp->next;
 		}
 	}
-	
 }

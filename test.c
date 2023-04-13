@@ -38,24 +38,22 @@ int main(int argc, char **argv)
 			sorting3AndLess(stackA);
 		else if (ft_lstsize(stackA) <= 5)
 			sorting5AndLess(&stackA, &stackB);
-		else if (ft_lstsize(stackA) <= 100)
+		else if (ft_lstsize(stackA) < 200)
 			sorting100AndLess(&stackA, &stackB);
 		else if (ft_lstsize(stackA) <= 500)
 			sorting500AndLess(&stackA, &stackB);
-		else
-			justSort(&stackA, &stackB);
 		// puts("------------------------StackA-----------------------");
 		// while (stackA)
 		// {
 		// 	printf("value == %ld || postion == %d\n", stackA->content, stackA->pos);
 		// 	stackA = stackA->next;
 		// }
-		puts("------------------------StackB-----------------------");
-		while (stackB)
-		{
-			printf("value == %ld || postion == %d\n", stackB->content, stackB->pos);
-			stackB = stackB->next;
-		}
+		// puts("------------------------StackB-----------------------");
+		// while (stackB)
+		// {
+		// 	printf("value == %ld || postion == %d\n", stackB->content, stackB->pos);
+		// 	stackB = stackB->next;
+		// }
 		ft_lstclear(&stackA, NULL);
 		ft_lstclear(&stackB, NULL);
 	}else
