@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 14:50:31 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/04/14 21:31:12 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/04/14 23:20:44 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ int		instra(t_list *stack, int pos);
 void	ifpushing(long value1, t_list **stackB, t_list **stackA);
 void	issorted(t_list *stack);
 void	rrr(t_list *stackA, t_list *stackB);
-int	issortedcheker(t_list *stack);
+int		issortedcheker(t_list *stack);
+void	pushingtobcheker(t_list **sender, t_list **receiver);
+void	pushingtoacheker(t_list **sender, t_list **receiver);
 
 #endif
