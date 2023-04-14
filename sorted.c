@@ -1,49 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   sorted.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/04 15:14:57 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/04/14 21:48:08 by mghalmi          ###   ########.fr       */
+/*   Created: 2023/04/14 21:06:22 by mghalmi           #+#    #+#             */
+/*   Updated: 2023/04/14 21:30:56 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rotate(t_list **stack, int stackApha)
+void	issorted(t_list *stack)
 {
-	long	head;
-	int		headindex;
 	t_list	*tmp;
+	int		count;
 
-	if (!(*stack)->next)
-		return ;
-	head = (*stack)->content;
-	headindex = (*stack)->pos;
-	tmp = *stack;
+	count = 0;
+	tmp = stack;
 	while (tmp)
 	{
 		if (tmp->next == NULL)
-		{
-			tmp->content = head;
-			tmp->pos = headindex;
 			break ;
-		}
-		tmp->content = tmp->next->content;
-		tmp->pos = tmp->next->pos;
+		if (tmp->content < tmp->next->content)
+			count++;
 		tmp = tmp->next;
 	}
-	if (stackApha != 0)
-		ft_printf("r%c\n", stackApha);
+	if (++count == ft_lstsize(stack))
+		exit(0);
 }
 
-void	rr(t_list *stackA, t_list *stackB)
+int	issortedcheker(t_list *stack)
 {
-	if (!(stackA->next) || !(stackB->next))
-		return ;
-	rotate(&stackA, 0);
-	rotate(&stackB, 0);
-	ft_printf("rr\n");
+	t_list	*tmp;
+	int		count;
+
+	count = 0;
+	tmp = stack;
+	while (tmp)
+	{
+		if (tmp->next == NULL)
+			break ;
+		if (tmp->content < tmp->next->content)
+			count++;
+		tmp = tmp->next;
+	}
+	if (++count == ft_lstsize(stack))
+		return (1);
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 16:54:17 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/04/14 19:54:13 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/04/14 21:49:14 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ void	reverserotate(t_list **stack, int stackAlpha)
 	long	*index;
 	int		i;
 
+	if (!(*stack))
+		return ;
 	i = 0;
 	tmp = *stack;
 	nbr = malloc(sizeof(long) * ft_lstsize(*stack));
@@ -58,6 +60,8 @@ void	reverserotate(t_list **stack, int stackAlpha)
 
 void	rrr(t_list *stackA, t_list *stackB)
 {
+	if (!stackA || !stackB)
+		return ;
 	reverserotate(&stackA, 0);
 	reverserotate(&stackB, 0);
 	ft_printf("rrr\n");

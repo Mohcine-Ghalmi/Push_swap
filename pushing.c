@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 17:35:21 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/04/14 18:28:00 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/04/14 21:41:37 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	pushingtob(t_list **sender, t_list **receiver)
 	t_list	*tmp;
 	t_list	*tmp1;
 
+	if (!(*sender))
+		return ;
 	tmp = *sender;
 	tmp1 = tmp->next;
 	*sender = tmp1;
@@ -29,6 +31,8 @@ void	pushingtoa(t_list **sender, t_list **receiver)
 	t_list	*tmp;
 	t_list	*tmp1;
 
+	if (!(*sender))
+		return ;
 	tmp = *sender;
 	tmp1 = tmp->next;
 	*sender = tmp1;
