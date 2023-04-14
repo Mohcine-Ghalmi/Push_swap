@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 16:54:17 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/04/14 23:28:03 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/04/14 23:42:56 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 t_list	*give(t_list *tmp, t_list **stack)
 {
+	tmp = *stack;
 	tmp->content = ft_lstlast(*stack)->content;
 	tmp->pos = ft_lstlast(*stack)->pos;
 	tmp = tmp->next;
@@ -47,7 +48,6 @@ void	reverserotate(t_list **stack, int stackAlpha)
 		index[i++] = tmp->pos;
 		tmp = tmp->next;
 	}
-	tmp = *stack;
 	tmp = give(tmp, stack);
 	i = -1;
 	while (++i < ft_lstsize(*stack) - 1)
