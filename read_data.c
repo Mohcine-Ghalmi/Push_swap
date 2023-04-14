@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 17:42:43 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/04/11 16:06:35 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/04/14 17:31:49 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	check(char **splited)
 		num1 = ft_atoi(splited[i]);
 		if (num1 < -2147483647 || num1 > 2147483647)
 		{
-			ft_printf("\033[0;31msize error\n");
+			ft_printf("Error\n");
 			exit(1);
 		}
 		while (splited[++j])
@@ -34,7 +34,7 @@ void	check(char **splited)
 			num2 = ft_atoi(splited[j]);
 			if (num1 == num2)
 			{
-				ft_printf("\033[0;31mduplicated value\n");
+				ft_printf("Error\n");
 				exit(1);
 			}
 		}

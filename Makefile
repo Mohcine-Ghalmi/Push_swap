@@ -3,17 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: sleeps <sleeps@student.42.fr>              +#+  +:+       +#+         #
+#    By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/07 14:50:27 by mghalmi           #+#    #+#              #
-#    Updated: 2023/04/14 02:47:21 by sleeps           ###   ########.fr        #
+#    Updated: 2023/04/14 17:57:52 by mghalmi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = Push_swap
 
-# SRC = Push_swap.c
-SRC = test.c 
+SRC = Push_swap.c
 UTILS = swaping.c pushing.c read_data.c rotate.c reverse_rotate.c sorting3AndLess.c sorting5AndLess.c \
 		sorting100AndLess.c sorting500AndLess.c index.c justSort.c
 
@@ -26,9 +25,9 @@ PRINTFDIR = ft_printf/
 all : $(NAME)
 
 $(NAME) : $(HEADER)
-	# make re -C $(LIBFTDIR)
-	# make bonus -C $(LIBFTDIR)
-	# make re -C $(PRINTFDIR)
+	make re -C $(LIBFTDIR)
+	make bonus -C $(LIBFTDIR)
+	make re -C $(PRINTFDIR)
 	cc -Wall -Wextra -Werror $(SRC) $(UTILS) libft/libft.a ft_printf/libftprintf.a -o $(NAME)
 
 nums :
@@ -39,8 +38,8 @@ clean :
 	make clean -C $(PRINTFDIR)
 
 fclean : 
-	# make fclean -C $(LIBFTDIR)
-	# make fclean -C $(PRINTFDIR)
+	make fclean -C $(LIBFTDIR)
+	make fclean -C $(PRINTFDIR)
 	rm -rf $(NAME)
 	rm -rf numbers
 

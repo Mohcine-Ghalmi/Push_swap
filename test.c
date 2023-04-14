@@ -55,6 +55,6 @@ int main(int argc, char **argv)
 		ft_lstclear(&stackB, NULL);
 	}else
 		ft_printf("----idk fih----\n");
-	// atexit(test)
+	// atexit(test);
 	return (0);
 }
