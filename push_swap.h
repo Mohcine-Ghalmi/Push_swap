@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sleeps <sleeps@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 14:50:31 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/04/13 14:49:08 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/04/14 02:44:41 by sleeps           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,6 @@ void    minOnTop(t_list **stack);
 void    indexStack(t_list **stack);
 void    sorting2(t_list *stackA);
 void    justSort(t_list **stackA, t_list **stackB, int chunk);
+void    justSortchunks(t_list **stackA, t_list **stackB, int chunk);
 
 #endif

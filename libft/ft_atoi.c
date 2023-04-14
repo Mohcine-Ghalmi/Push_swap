@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sleeps <sleeps@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 11:09:05 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/04/02 15:27:31 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/04/14 03:10:08 by sleeps           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ long	ft_atoi(const char *str)
 		res = res * 10 + str[i++] - '0';
 	if (str[i] || signe == 0)
 	{
-		ft_printf("\033[0;31mreading error\n");
+		ft_printf("Error\n");
 		exit(1);
 	}
 	return (signe * res);

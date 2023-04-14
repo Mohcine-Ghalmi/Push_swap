@@ -16,10 +16,7 @@ void	isSorted(t_list *stack)
 		tmp = tmp->next;
 	}
 	if (++count == ft_lstsize(stack))
-	{
-        ft_printf("\033[0;31mthe stack already sorted\n");
-		return ;
-	}
+		exit(0);
 }
 
 void	test(){system("leaks Push_swap");}
@@ -40,7 +37,7 @@ int main(int argc, char **argv)
 			sorting5AndLess(&stackA, &stackB);
 		else if (ft_lstsize(stackA) < 200)
 			sorting100AndLess(&stackA, &stackB);
-		else if (ft_lstsize(stackA) <= 500)
+		else if (ft_lstsize(stackA) >= 200)
 			sorting500AndLess(&stackA, &stackB);
 		// puts("------------------------StackA-----------------------");
 		// while (stackA)

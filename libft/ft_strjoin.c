@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sleeps <sleeps@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 15:29:08 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/04/12 15:31:04 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/04/14 03:10:37 by sleeps           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	check_empty(char const *str)
 	}
 	if (count == i)
 	{
-		ft_printf("\033[0;31mempty value");
+		ft_printf("Error\n");
 		exit(0);
 	}
 }
