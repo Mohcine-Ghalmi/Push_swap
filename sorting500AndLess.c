@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   sorting500AndLess.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sleeps <sleeps@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 20:12:18 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/04/14 02:50:51 by sleeps           ###   ########.fr       */
+/*   Updated: 2023/04/14 20:03:53 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    sorting500AndLess(t_list **stackA, t_list **stackB)
+void	sorting500andless(t_list **stackA, t_list **stackB)
 {
-	justSortchunks(stackA, stackB, 9);
+	justsortchunks(stackA, stackB, 9);
 }

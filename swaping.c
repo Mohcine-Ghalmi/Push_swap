@@ -6,11 +6,11 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 16:04:44 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/04/11 22:46:14 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/04/14 17:59:34 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+#include "push_swap.h"
 
 void	swaping(t_list *stack, int stackAlpha)
 {

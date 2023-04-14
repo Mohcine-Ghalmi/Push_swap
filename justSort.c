@@ -6,16 +6,16 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 20:55:15 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/04/14 17:45:21 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/04/14 19:44:17 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    justSort(t_list **stackA, t_list **stackB, int chunk)
+void	justsort(t_list **stackA, t_list **stackB, int chunk)
 {
-	int add;
-	
+	int	add;
+
 	add = chunk;
 	while (*stackA)
 	{
@@ -25,45 +25,38 @@ void    justSort(t_list **stackA, t_list **stackB, int chunk)
 		{
 			if ((*stackA)->pos > (chunk - (add / 2)))
 			{
-				pushingToB(stackA, stackB);
+				pushingtob(stackA, stackB);
 				rotate(stackB, 'b');
 			}
 			else
-				pushingToB(stackA, stackB);
+				pushingtob(stackA, stackB);
 		}
 		if (ft_lstsize(*stackB) == chunk)
 			chunk += add;
 	}
 }
 
-int    instraction_number(int len, int pos)
+int	findpos(t_list *stack, int nums)
 {
-    if (pos < (len / 2))
-        return (pos);
-    return (len - pos);
-}
+	int		count;
+	t_list	*tmp;
 
-int findPos(t_list *stack, int nums)
-{
-	int count;
-	t_list *tmp;
-	
 	count = 0;
 	tmp = stack;
 	while (tmp)
 	{
 		if (tmp->content == nums)
-			break;
+			break ;
 		tmp = tmp->next;
 		count++;
 	}
 	return (count);
 }
 
-int maxvalue(t_list	*stack, long *preMax)
+int	maxval(t_list	*stack, long *preMax)
 {
 	t_list	*tmp;
-	long 	max;
+	long	max;
 
 	tmp = stack;
 	max = tmp->content;
@@ -84,55 +77,45 @@ int maxvalue(t_list	*stack, long *preMax)
 	return (max);
 }
 
-
-void	pushMaxA(t_list **stackA, t_list **stackB, long value1, int value2)
+void	pushmaxa(t_list **stackA, t_list **stackB, long value1, int value2)
 {
-	int yes;
+	int	yes;
 
 	yes = 0;
 	if (value1 == value2)
 		yes = 1;
-	value2 = findPos(*stackB, value2);
+	value2 = findpos(*stackB, value2);
 	if (value2 > ft_lstsize(*stackB) / 2)
 	{
 		while (ft_lstsize(*stackB) - value2++)
-			reverseRotate(stackB, 'b');
+			reverserotate(stackB, 'b');
 	}
 	else
 		while (value2--)
 			rotate(stackB, 'b');
-	pushingToA(stackB, stackA);
-	value1 = findPos(*stackB, value1);
+	pushingtoa(stackB, stackA);
+	value1 = findpos(*stackB, value1);
 	if (yes == 0)
-	{
-		if (value1 > ft_lstsize(*stackB) / 2)
-			while (ft_lstsize(*stackB) - value1++)
-				reverseRotate(stackB, 'b');
-		else
-			while (value1--)
-				rotate(stackB, 'b');
-		pushingToA(stackB, stackA);
-		sorting2(*stackA);
-	}
+		ifpushing(value1, stackB, stackA);
 }
 
-void    justSortchunks(t_list **stackA, t_list **stackB, int chunk)
+void	justsortchunks(t_list **stackA, t_list **stackB, int chunk)
 {
-	long premaxInstra;
-	long premaxValue;
-	int maxInstra;
-	long maxValue;
+	long	premaxinstra;
+	long	premaxvalue;
+	int		maxinstra;
+	long	maxvalue;
 
-	justSort(stackA, stackB, ft_lstsize(*stackA) / chunk);
-	while(*stackB)
+	justsort(stackA, stackB, ft_lstsize(*stackA) / chunk);
+	while (*stackB)
 	{
-		premaxValue = 0;
-		maxValue = maxvalue(*stackB, &premaxValue);
-		maxInstra = instraction_number(ft_lstsize(*stackB), findPos(*stackB, maxValue));
-		premaxInstra = instraction_number(ft_lstsize(*stackB), findPos(*stackB, premaxValue));
-		if (premaxInstra < maxInstra)
-			pushMaxA(stackA, stackB, maxValue, premaxValue);
+		premaxvalue = 0;
+		maxvalue = maxval(*stackB, &premaxvalue);
+		maxinstra = instra(*stackB, findpos(*stackB, maxvalue));
+		premaxinstra = instra(*stackB, findpos(*stackB, premaxvalue));
+		if (premaxinstra < maxinstra)
+			pushmaxa(stackA, stackB, maxvalue, premaxvalue);
 		else
-			pushMaxA(stackA, stackB, premaxValue, maxValue);
+			pushmaxa(stackA, stackB, premaxvalue, maxvalue);
 	}
 }

@@ -6,28 +6,28 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 15:14:57 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/04/11 23:04:57 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/04/14 19:55:01 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+#include "push_swap.h"
 
 void	rotate(t_list **stack, int stackApha)
 {
 	long	head;
-	int		headIndex;
+	int		headindex;
 	t_list	*tmp;
-	
+
 	head = (*stack)->content;
-	headIndex = (*stack)->pos;
+	headindex = (*stack)->pos;
 	tmp = *stack;
 	while (tmp)
 	{
 		if (tmp->next == NULL)
 		{
 			tmp->content = head;
-			tmp->pos = headIndex;
-			break;
+			tmp->pos = headindex;
+			break ;
 		}
 		tmp->content = tmp->next->content;
 		tmp->pos = tmp->next->pos;

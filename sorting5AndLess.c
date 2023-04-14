@@ -6,62 +6,62 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 15:43:12 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/04/12 15:29:04 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/04/14 20:02:31 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+#include "push_swap.h"
 
-int findMin(t_list *stack, long toFind)
+int	findmin(t_list *stack, long toFind)
 {
-    int count;
+	int	count;
 
-    count = 0;
-    while (stack)
-    {
-        if (stack->content == toFind)
-            break;
-        stack = stack->next;
-        count++;
-    }
-    return (count);
+	count = 0;
+	while (stack)
+	{
+		if (stack->content == toFind)
+			break ;
+		stack = stack->next;
+		count++;
+	}
+	return (count);
 }
 
-void    minOnTop(t_list **stack)
+void	minontop(t_list **stack)
 {
-    t_list  *tmp;
-    int    minPos;
-    long    minCont;
+	t_list	*tmp;
+	int		minpos;
+	long	mincont;
 
-    tmp = *stack;
-    minCont = tmp->content;
-    tmp = tmp->next;
-    while (tmp)
-    {
-        if (minCont > tmp->content)
-            minCont = tmp->content;
-        tmp = tmp->next;
-    }
-    minPos = findMin(*stack, minCont);
-    if (minPos > ft_lstsize(*stack) / 2)
-        while (ft_lstsize(*stack) - minPos++)
-            reverseRotate(stack, 'a');
-    else
-        while (minPos--)
-            rotate(stack, 'a');
+	tmp = *stack;
+	mincont = tmp->content;
+	tmp = tmp->next;
+	while (tmp)
+	{
+		if (mincont > tmp->content)
+			mincont = tmp->content;
+		tmp = tmp->next;
+	}
+	minpos = findmin(*stack, mincont);
+	if (minpos > ft_lstsize(*stack) / 2)
+		while (ft_lstsize(*stack) - minpos++)
+			reverserotate(stack, 'a');
+	else
+		while (minpos--)
+			rotate(stack, 'a');
 }
 
-void    sorting5AndLess(t_list **stackA, t_list **stackB)
+void	sorting5andless(t_list **stackA, t_list **stackB)
 {
-    minOnTop(stackA);
-    pushingToB(stackA, stackB);
-    if (ft_lstsize(*stackA) == 4)
-    {
-        minOnTop(stackA);
-        pushingToB(stackA, stackB);
-    }
-    sorting3AndLess(*stackA);
-    pushingToA(stackB, stackA);
-    if (ft_lstsize(*stackB))
-        pushingToA(stackB, stackA);   
+	minontop(stackA);
+	pushingtob(stackA, stackB);
+	if (ft_lstsize(*stackA) == 4)
+	{
+		minontop(stackA);
+		pushingtob(stackA, stackB);
+	}
+	sorting3andless(*stackA);
+	pushingtoa(stackB, stackA);
+	if (ft_lstsize(*stackB))
+		pushingtoa(stackB, stackA);
 }

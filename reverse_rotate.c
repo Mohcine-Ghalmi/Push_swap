@@ -6,13 +6,29 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 16:54:17 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/04/11 23:01:18 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/04/14 19:54:13 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    reverseRotate(t_list **stack, int stackAlpha)
+t_list	*give(t_list *tmp, t_list **stack)
+{
+	tmp->content = ft_lstlast(*stack)->content;
+	tmp->pos = ft_lstlast(*stack)->pos;
+	tmp = tmp->next;
+	return (tmp);
+}
+
+t_list	*give2(long nbr, long index, t_list *tmp)
+{
+	tmp->content = nbr;
+	tmp->pos = index;
+	tmp = tmp->next;
+	return (tmp);
+}
+
+void	reverserotate(t_list **stack, int stackAlpha)
 {
 	t_list	*tmp;
 	long	*nbr;
@@ -27,19 +43,13 @@ void    reverseRotate(t_list **stack, int stackAlpha)
 	{
 		nbr[i] = tmp->content;
 		index[i++] = tmp->pos;
-		tmp = tmp->next; 
-	}
-	tmp = *stack;
-	tmp->content = ft_lstlast(*stack)->content;
-	tmp->pos = ft_lstlast(*stack)->pos;
-	tmp = tmp->next;
-	i = 0;
-	while (i < ft_lstsize(*stack) - 1)
-	{
-		tmp->content = nbr[i];
-		tmp->pos = index[i++];
 		tmp = tmp->next;
 	}
+	tmp = *stack;
+	tmp = give(tmp, stack);
+	i = -1;
+	while (++i < ft_lstsize(*stack) - 1)
+		tmp = give2(nbr[i], index[i], tmp);
 	if (stackAlpha != 0)
 		ft_printf("rr%c\n", stackAlpha);
 	free(nbr);
@@ -48,7 +58,7 @@ void    reverseRotate(t_list **stack, int stackAlpha)
 
 void	rrr(t_list *stackA, t_list *stackB)
 {
-	reverseRotate(&stackA, 0);
-	reverseRotate(&stackB, 0);
+	reverserotate(&stackA, 0);
+	reverserotate(&stackB, 0);
 	ft_printf("rrr\n");
 }

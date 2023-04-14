@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sleeps <sleeps@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 14:50:31 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/04/14 02:44:41 by sleeps           ###   ########.fr       */
+/*   Updated: 2023/04/14 20:05:17 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,22 +21,24 @@
 # include <math.h>
 # include "libft/libft.h"
 
-t_list	*readingData(char **argv);
+t_list	*readingdata(char **argv);
 void	swaping(t_list *stack, int stackAlpha);
 void	ss(t_list *stackA, t_list *stackB);
-void	pushingToB(t_list **sender, t_list **receiver);
-void	pushingToA(t_list **sender, t_list **receiver);
+void	pushingtob(t_list **sender, t_list **receiver);
+void	pushingtoa(t_list **sender, t_list **receiver);
 void	rotate(t_list **stack, int stackApha);
 void	rr(t_list *stackA, t_list *stackB);
-void    reverseRotate(t_list **stack, int stackAlpha);
-void    sorting3AndLess(t_list *stackA);
-void    sorting5AndLess(t_list **stackA, t_list **stackB);
-void    sorting100AndLess(t_list **stackA, t_list **stackB);
-void    sorting500AndLess(t_list **stackA, t_list **stackB);
-void    minOnTop(t_list **stack);
-void    indexStack(t_list **stack);
-void    sorting2(t_list *stackA);
-void    justSort(t_list **stackA, t_list **stackB, int chunk);
-void    justSortchunks(t_list **stackA, t_list **stackB, int chunk);
+void	reverserotate(t_list **stack, int stackAlpha);
+void	sorting3andless(t_list *stackA);
+void	sorting5andless(t_list **stackA, t_list **stackB);
+void	sorting100andless(t_list **stackA, t_list **stackB);
+void	sorting500andless(t_list **stackA, t_list **stackB);
+void	minontop(t_list **stack);
+void	indexstack(t_list **stack);
+void	sorting2(t_list *stackA);
+void	justsort(t_list **stackA, t_list **stackB, int chunk);
+void	justsortchunks(t_list **stackA, t_list **stackB, int chunk);
+int		instra(t_list *stack, int pos);
+void	ifpushing(long value1, t_list **stackB, t_list **stackA);
 
 #endif

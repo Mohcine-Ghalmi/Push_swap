@@ -6,18 +6,24 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 17:42:43 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/04/14 17:31:49 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/04/14 19:42:52 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+#include "push_swap.h"
+
+void	eroor(void)
+{
+	ft_printf("Error\n");
+	exit(1);
+}
 
 void	check(char **splited)
 {
-	int i;
-	int j;
-	long num1;
-	long num2;
+	int		i;
+	int		j;
+	long	num1;
+	long	num2;
 
 	i = 0;
 	while (splited[i])
@@ -25,50 +31,52 @@ void	check(char **splited)
 		j = i;
 		num1 = ft_atoi(splited[i]);
 		if (num1 < -2147483647 || num1 > 2147483647)
-		{
-			ft_printf("Error\n");
-			exit(1);
-		}
+			eroor();
 		while (splited[++j])
 		{
 			num2 = ft_atoi(splited[j]);
 			if (num1 == num2)
-			{
-				ft_printf("Error\n");
-				exit(1);
-			}
+				eroor();
 		}
 		i++;
 	}
 }
 
-t_list *readingData(char **argv)
+void	freeandcheck(char *join, char **split)
 {
-	int i;
-	char **split;
-	char *join;
-	t_list *dataStart;
+	free(join);
+	check(split);
+}
+
+void	fillstack(t_list **stack, int i, char *split)
+{
+	ft_lstadd_back(stack, ft_lstnew(ft_atoi(split), i));
+	free(split);
+}
+
+t_list	*readingdata(char **argv)
+{
+	int		i;
+	char	**split;
+	char	*join;
+	t_list	*datastart;
 
 	i = 1;
-	dataStart = NULL;
+	datastart = NULL;
 	join = NULL;
 	while (argv[i])
 		join = ft_strjoin(join, argv[i++], ' ');
 	split = ft_split(join, ' ');
 	if (!split)
 	{
-    	free(join);
-    	return (NULL);
+		free(join);
+		return (NULL);
 	}
-	free(join);
-	check(split);
+	freeandcheck(join, split);
 	i = -1;
 	while (split[++i])
-	{
-		ft_lstadd_back(&dataStart, ft_lstnew(ft_atoi(split[i]), i));
-		free(split[i]);
-	}
-	indexStack(&dataStart);
+		fillstack(&datastart, i, split[i]);
+	indexstack(&datastart);
 	free(split);
-	return (dataStart);
+	return (datastart);
 }
