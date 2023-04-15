@@ -6,7 +6,7 @@
 #    By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/07 14:50:27 by mghalmi           #+#    #+#              #
-#    Updated: 2023/04/14 21:06:59 by mghalmi          ###   ########.fr        #
+#    Updated: 2023/04/15 23:08:50 by mghalmi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,20 +35,17 @@ all : $(NAME)
 
 bonus : $(NameB)
 
-$(NAME) : $(OBJ)
-	make re -C $(LIBFTDIR)
+$(NAME) : $(OBJ) push_swap.h libft/libft.h ft_printf/ft_printf.h
+	make -C $(LIBFTDIR)
 	make bonus -C $(LIBFTDIR)
-	make re -C $(PRINTFDIR)
+	make -C $(PRINTFDIR)
 	cc -Wall -Wextra -Werror $(SRC) libft/libft.a ft_printf/libftprintf.a -o $(NAME)
 
-$(NameB) : $(OBJB)
-	make re -C $(LIBFTDIR)
+$(NameB) : $(OBJB) push_swap.h get_next_line/get_next_line.h libft/libft.h ft_printf/ft_printf.h
+	make -C $(LIBFTDIR)
 	make bonus -C $(LIBFTDIR)
-	make re -C $(PRINTFDIR)
+	make -C $(PRINTFDIR)
 	cc -Wall -Wextra -Werror $(SRCB) libft/libft.a ft_printf/libftprintf.a -o $(NAMEB)
-	
-%.o: %.c $(HEADER)
-	cc -Wall -Wextra -Werror -c $<
 
 clean :
 	make clean -C $(LIBFTDIR)

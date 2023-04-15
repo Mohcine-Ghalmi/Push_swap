@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 16:47:16 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/04/15 22:25:22 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/04/15 23:09:25 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int	main(int argc, char **argv)
 {
 	t_list	*stacka;
 	t_list	*stackb;
+
 	if (argc >= 2)
 	{
 		stacka = readingdata(argv);
