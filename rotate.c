@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 15:14:57 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/04/14 21:48:08 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/04/15 22:09:28 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,11 @@ void	rotate(t_list **stack, int stackApha)
 		ft_printf("r%c\n", stackApha);
 }
 
-void	rr(t_list *stackA, t_list *stackB)
+void	rr(t_list **stackA, t_list **stackB)
 {
-	if (!(stackA->next) || !(stackB->next))
+	if (!((*stackA)->next) || !((*stackB)->next))
 		return ;
-	rotate(&stackA, 0);
-	rotate(&stackB, 0);
+	rotate(stackA, 0);
+	rotate(stackB, 0);
 	ft_printf("rr\n");
 }

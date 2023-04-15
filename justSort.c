@@ -6,13 +6,13 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 20:55:15 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/04/14 19:44:17 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/04/15 22:16:13 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	justsort(t_list **stackA, t_list **stackB, int chunk)
+void	justsort(t_list **stackA, t_list **stackB, int chunk, int size)
 {
 	int	add;
 
@@ -26,7 +26,10 @@ void	justsort(t_list **stackA, t_list **stackB, int chunk)
 			if ((*stackA)->pos > (chunk - (add / 2)))
 			{
 				pushingtob(stackA, stackB);
-				rotate(stackB, 'b');
+				if (size > 5 && (*stackA)->pos >= chunk)
+					rr((stackA), (stackB));
+				else
+					rotate(stackB, 'b');
 			}
 			else
 				pushingtob(stackA, stackB);
@@ -99,14 +102,14 @@ void	pushmaxa(t_list **stackA, t_list **stackB, long value1, int value2)
 		ifpushing(value1, stackB, stackA);
 }
 
-void	justsortchunks(t_list **stackA, t_list **stackB, int chunk)
+void	justsortchunks(t_list **stackA, t_list **stackB, int chunk, int size)
 {
 	long	premaxinstra;
 	long	premaxvalue;
 	int		maxinstra;
 	long	maxvalue;
 
-	justsort(stackA, stackB, ft_lstsize(*stackA) / chunk);
+	justsort(stackA, stackB, ft_lstsize(*stackA) / chunk, size);
 	while (*stackB)
 	{
 		premaxvalue = 0;

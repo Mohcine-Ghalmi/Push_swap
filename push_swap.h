@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 14:50:31 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/04/14 23:20:44 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/04/15 22:24:10 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ss(t_list *stackA, t_list *stackB);
 void	pushingtob(t_list **sender, t_list **receiver);
 void	pushingtoa(t_list **sender, t_list **receiver);
 void	rotate(t_list **stack, int stackApha);
-void	rr(t_list *stackA, t_list *stackB);
+void	rr(t_list **stackA, t_list **stackB);
 void	reverserotate(t_list **stack, int stackAlpha);
 void	sorting3andless(t_list *stackA);
 void	sorting5andless(t_list **stackA, t_list **stackB);
@@ -34,8 +34,8 @@ void	sorting500andless(t_list **stackA, t_list **stackB);
 void	minontop(t_list **stack);
 void	indexstack(t_list **stack);
 void	sorting2(t_list *stackA);
-void	justsort(t_list **stackA, t_list **stackB, int chunk);
-void	justsortchunks(t_list **stackA, t_list **stackB, int chunk);
+void	justsort(t_list **stackA, t_list **stackB, int chunk, int size);
+void	justsortchunks(t_list **stackA, t_list **stackB, int chunk, int siz);
 int		instra(t_list *stack, int pos);
 void	ifpushing(long value1, t_list **stackB, t_list **stackA);
 void	issorted(t_list *stack);
