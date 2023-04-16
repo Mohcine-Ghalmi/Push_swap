@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 14:50:31 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/04/15 23:00:59 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/04/16 17:08:48 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,8 @@ void	rrr(t_list *stackA, t_list *stackB);
 int		issortedcheker(t_list *stack);
 void	pushingtobcheker(t_list **sender, t_list **receiver);
 void	pushingtoacheker(t_list **sender, t_list **receiver);
+void	rrcheker(t_list **stackA, t_list **stackB);
+void	rrrcheker(t_list *stackA, t_list *stackB);
+void	sscheker(t_list *stackA, t_list *stackB);
 
 #endif

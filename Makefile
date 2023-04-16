@@ -6,19 +6,19 @@
 #    By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/07 14:50:27 by mghalmi           #+#    #+#              #
-#    Updated: 2023/04/15 23:08:50 by mghalmi          ###   ########.fr        #
+#    Updated: 2023/04/16 16:45:22 by mghalmi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
-NameB = checker
+NAMEB = checker
 
 SRC = Push_swap.c swaping.c pushing.c read_data.c rotate.c reverse_rotate.c sorting3AndLess.c \
 		sorting5AndLess.c sorting100AndLess.c sorting500AndLess.c index.c justSort.c sorted.c
 
 SRCB = swaping.c pushing.c read_data.c rotate.c reverse_rotate.c sorting3AndLess.c \
-		sorting5AndLess.c sorting100AndLess.c sorting500AndLess.c index.c justSort.c \
+		sorting5AndLess.c index.c justSort.c chekerPushing.c  checker.c \
 		get_next_line/get_next_line.c get_next_line/get_next_line_utils.c sorted.c
 
 HEADER = push_swap.h
@@ -33,7 +33,7 @@ OBJB = $(SRCB:%.c=%.o)
 
 all : $(NAME)
 
-bonus : $(NameB)
+bonus : $(NAMEB)
 
 $(NAME) : $(OBJ) push_swap.h libft/libft.h ft_printf/ft_printf.h
 	make -C $(LIBFTDIR)
@@ -41,7 +41,7 @@ $(NAME) : $(OBJ) push_swap.h libft/libft.h ft_printf/ft_printf.h
 	make -C $(PRINTFDIR)
 	cc -Wall -Wextra -Werror $(SRC) libft/libft.a ft_printf/libftprintf.a -o $(NAME)
 
-$(NameB) : $(OBJB) push_swap.h get_next_line/get_next_line.h libft/libft.h ft_printf/ft_printf.h
+$(NAMEB) : $(OBJB) push_swap.h get_next_line/get_next_line.h libft/libft.h ft_printf/ft_printf.h
 	make -C $(LIBFTDIR)
 	make bonus -C $(LIBFTDIR)
 	make -C $(PRINTFDIR)

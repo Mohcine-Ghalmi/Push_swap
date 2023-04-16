@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 15:29:08 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/04/14 17:27:28 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/04/16 16:48:25 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	check_empty(char const *str)
 	if (count == i)
 	{
 		ft_printf("Error\n");
-		exit(0);
+		exit(1);
 	}
 }
 

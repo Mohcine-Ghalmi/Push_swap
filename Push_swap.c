@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 16:47:16 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/04/15 23:09:25 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/04/16 16:43:36 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,5 @@ int	main(int argc, char **argv)
 		ft_lstclear(&stacka, NULL);
 		ft_lstclear(&stackb, NULL);
 	}
-	else
-		ft_printf("Error\n");
 	return (0);
 }
