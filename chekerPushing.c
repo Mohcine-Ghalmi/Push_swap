@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   chekerPushing.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sleeps <sleeps@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 23:13:20 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/04/16 17:08:38 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/04/18 21:05:00 by sleeps           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	pushingtoacheker(t_list **sender, t_list **receiver)
 
 void	rrcheker(t_list **stackA, t_list **stackB)
 {
-	if (!((*stackA)->next) || !((*stackB)->next))
+	if (!((*stackA)) || !((*stackB)))
 		return ;
 	rotate(stackA, 0);
 	rotate(stackB, 0);

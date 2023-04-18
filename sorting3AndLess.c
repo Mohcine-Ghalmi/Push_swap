@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorting3AndLess.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sleeps <sleeps@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 16:18:29 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/04/14 19:59:32 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/04/18 20:59:04 by sleeps           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	sorting2(t_list *stackA)
 	second = stackA->next->content;
 	if (first > second)
 		swaping(stackA, 'a');
+	exit(0);
 }
 
 void	sorting3andless(t_list *stackA)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swaping.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sleeps <sleeps@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 16:04:44 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/04/14 21:46:53 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/04/18 21:06:58 by sleeps           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	swaping(t_list *stack, int stackAlpha)
 	long	tmp;
 	int		pos;
 
-	if (!stack)
+	if (!stack->next)
 		return ;
 	tmp = stack->content;
 	pos = stack->pos;
@@ -31,7 +31,7 @@ void	swaping(t_list *stack, int stackAlpha)
 
 void	ss(t_list *stackA, t_list *stackB)
 {
-	if (!stackA || !stackB)
+	if (!stackA->next || !stackB->next)
 		return ;
 	swaping(stackA, 0);
 	swaping(stackB, 0);

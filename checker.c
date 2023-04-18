@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sleeps <sleeps@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 20:18:38 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/04/16 17:12:49 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/04/18 21:00:44 by sleeps           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,11 @@ void	checkinstra(t_list **stacka, t_list **stackb, char *str)
 		reverserotate(stackb, 0);
 	else if (ft_strncmp(str, "rrr\n", ft_strlen(str)) == 0)
 		rrrcheker(*stacka, *stackb);
+	else
+	{
+		printf("Error\n");
+		exit(1);
+	}
 }
 
 int	main(int ac, char **argv)
